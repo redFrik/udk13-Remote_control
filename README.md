@@ -10,7 +10,10 @@ room111, UdK, medienhaus, kleistpark
 dates
 -----
 
-soon...
+dates
+-----
+- [ ] [23apr 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150423): introduction and presentation of course
 
 links to previous semesters... <http://redfrik.github.io/udk00-Audiovisual_Programming/>
 
+![remotecontrol](remotecontrol.jpg?raw=true "remotecontrol")
