@@ -9,10 +9,21 @@ room111, UdK, medienhaus, kleistpark
 
 dates
 -----
+- [ ] 23apr 14-16: introduction and presentation of course
+- [ ] 30apr 14-16:
+- [ ] 07maj 14-16:
+- [ ] 14maj: **NO CLASS** (holiday)
+- [ ] 21maj: **NO CLASS**
+- [ ] 28maj 14-16:
+- [ ] 04jum 14-16:
+- [ ] 11jun 14-16:
+- [ ] 18jun 14-16:
+- [ ] 25jun 14-16:
+- [ ] 02jul 14-16:
+- [ ] 09jul 14-16:
+- [ ] 16jul: **NO CLASS**
 
-dates
------
-- [ ] [23apr 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150423): introduction and presentation of course
+(and we might do some longer sessions (14-17))
 
 links to previous semesters... <http://redfrik.github.io/udk00-Audiovisual_Programming/>
 
