@@ -9,7 +9,7 @@ room111, UdK, medienhaus, kleistpark
 
 dates
 -----
-- [ ] [23apr 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk150423): introduction and presentation of course, rc switch (433MHz)
+- [ ] [23apr 14-16](https://github.com/redFrik/udk13-Back_to_basics/tree/master/udk150423): introduction and presentation of course, rc switch (433MHz)
 - [ ] 30apr 14-16:
 - [ ] 07maj 14-16:
 - [ ] 14maj: **NO CLASS** (holiday)
