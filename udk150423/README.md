@@ -122,6 +122,8 @@ if it works you should hear and see the relay going on and off with a delay of 2
 touch antenna light example
 --
 
+connect a 220v lamp to a relay.
+
 arduino code...
 
 ```cpp
@@ -143,8 +145,9 @@ void setup() {
     mySwitch.send(OFF0, 24);
 }
 void loop() {
-    Serial.println(analogRead(A0));
-    if(analogRead(A0)==0 || (analogRead(A0)==1023)) {
+    int val= analogRead(A0);
+    Serial.println(val);
+    if(val==0 || (val==1023)) { //check if touched
         mySwitch.send(ON0, 24);
     } else {
         mySwitch.send(OFF0, 24);
@@ -188,7 +191,6 @@ void loop() {
     delay(50);
 }
 ```
-
 
 supercollider code...
 
