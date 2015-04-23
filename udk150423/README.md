@@ -7,10 +7,14 @@ general course introduction
 supercollider
 --
 
+a system mainly for making synthetic sound. but can do a lot of other things as well. includes features like MIDI, OSC, Serial etc. that we will use to talk to hardware and other software.
+
 http://supercollider.github.io/download.html
 
 arduino
 --
+
+a simple language + a hardware standard for simple electronics. can get input from many kinds of sensors and control many types of things.
 
 http://www.arduino.cc/en/Main/Software
 
@@ -20,21 +24,22 @@ http://www.arduino.cc/en/Main/Software
 
 433.92MHz RC power sockets
 
-can control standard 220V power sockets remotely (≈ 30m distance).  easy and cheap to use but note: they react SLOW!
+can control standard 220V power sockets remotely (≈ 30m distance).  easy and cheap to use but note: they react SLOW! often it takes more than a second after sending the command that the socket relay reacts and turns the power on/off.
 
-modules for arduino <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
-
-also check maximum watt. different rc sockets can take different loads. the two different models i have have a rating of 10A and 3600W maximum. double check manual before connecting heavy motors like vacuum cleaners (sidenote: since autumn 2014 there's a law in the EU that one can only buy less that 1600W vacuum cleaners - but old models might require more).
-
-two different models...
+i have used two different models. one gought at bauhaus and the other online at reichelt.
 
 ![bauhaus](bauhaus.jpg?raw=true "bauhaus")
 
 ![reichelt](reichelt.jpg?raw=true "reichelt")
 
-download and install the rc-switch library (v.2.52) for arduino <https://code.google.com/p/rc-switch/>
+prices vary and there are many different manufacturers and models. check maximum wattage before buying. different rc sockets can take different loads. the two different models i have have a rating of 10A and 3600W maximum. so double check the manual before connecting heavy motors like vacuum cleaners (sidenote: since autumn 2014 there's a law in the EU that one can only buy less that 1600W vacuum cleaners - but old models might require more).
 
-then connect a receiver module like this...
+to control these sockets from your computer you also need a sender and receiver module. again there are different versions (some with very long range).
+i have these cheap modules and they work well with arduino: <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
+
+these modules are also easier to use if you download and install the rc-switch library (v.2.52) for arduino <https://code.google.com/p/rc-switch/>
+
+connect a receiver module like this...
 
 ![receiver](rc-switch_receiver.jpg?raw=true "receiver")
 
