@@ -22,6 +22,8 @@ http://www.arduino.cc/en/Main/Software
 
 can control standard 220v power sockets remotely (≈ 30m distance).  easy and cheap to use but note: they react SLOW!
 
+modules for arduino <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
+
 also check maximum watt. different rc sockets can take different loads. the two different models i have have a rating of 10A and 3600W maximum. double check manual before connecting heavy motors like vacuum cleaners (sidenote: since autumn 2014 there's a law in the EU that one can only buy less that 1600W vacuum cleaners - but old models might require more).
 
 two different models...
