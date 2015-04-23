@@ -58,6 +58,7 @@ the values should fluctuate and then go to 0 when you touch the A0 wire (it is a
 today's topic: 433.92MHz RC power sockets
 
 makes it easy to control standard 220V power sockets remotely (≈ 30m distance).  cheap and easy to use but note: they react SLOW! often it takes more than a second after sending the command that the socket relay reacts and turns the power on/off.
+also note that this techniques is insecure and very easy to hack.
 
 i have used two different models. one bought at bauhaus and the other, home easy, online at [reichelt](http://www.reichelt.de/ELRO-HE808S/3/index.html?&ACTION=3&LA=446&ARTICLE=135910&artnr=ELRO+HE808S&SEARCH=ELRO+HE808S).
 
@@ -76,7 +77,7 @@ connect a receiver module like this...
 
 ![receiver](rc-switch_receiver.jpg?raw=true "receiver")
 
-after that, upload the `ReceiveDemo_Advanced` sketch from rc-switch examples folder,
+after that, upload the `ReceiveDemo_Simple` sketch from rc-switch examples folder,
 open serial monitor in arduino and set the baudrate to 9600.
 
 then put in a battery in the rc remote control that came with the sockets and press some buttons. you should see data being printed in the serial monitor window.
@@ -97,26 +98,26 @@ and upload this code (edit the numbers in the code - use the ones you wrote down
 
 #include <RCSwitch.h>
 
-#define ON 266516  //numbers you received with ReceiveDemo_Simple - edit to match
-#define OFF 266517
+#define ON0 5574933 //numbers you received with ReceiveDemo_Simple - edit to match
+#define OFF0 5574932
 
 RCSwitch mySwitch = RCSwitch();
 
 void setup() {
-    Serial.begin(9600);
-    mySwitch.enableTransmit(10);  //arduino pin
-    mySwitch.setPulseLength(183); //pulselength - edit to match
-    mySwitch.setProtocol(1);      //1 or 2 - edit to match
-
-    mySwitch.send(OFF, 24);      //24 is length - edit to match
+    mySwitch.enableTransmit(10);    //arduino pin10
+    mySwitch.setPulseLength(183);   //pulselength - edit to match but 183 is most common
+    //mySwitch.setProtocol(1);      //1 or 2 - edit to match
+    mySwitch.send(OFF0, 24);        //turn off at startup
 }
 void loop() {
     delay(2000);
-    mySwitch.send(ON, 24);
+    mySwitch.send(ON0, 24);
     delay(2000);
-    mySwitch.send(OFF, 24);
+    mySwitch.send(OFF0, 24);
 }
 ```
+
+if it works you should hear and see the relay going on and off with a delay of 2 seconds.
 
 touch antenna light example
 --
