@@ -20,7 +20,7 @@ http://www.arduino.cc/en/Main/Software
 
 433.92MHz RC power sockets
 
-can control standard 220v power sockets remotely (≈ 30m distance).  easy and cheap to use but note: they react SLOW!
+can control standard 220V power sockets remotely (≈ 30m distance).  easy and cheap to use but note: they react SLOW!
 
 modules for arduino <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
 
@@ -36,12 +36,20 @@ download and install the rc-switch library (v.2.52) for arduino <https://code.go
 
 then connect a receiver module like this...
 
-![receiver](rc-switch_receiver.jpg.jpg?raw=true "receiver")
+![receiver](rc-switch_receiver.jpg?raw=true "receiver")
 
-after that, upload the ReceiveDemo_Advanced sketch from rc-switch examples folder,
+after that, upload the `ReceiveDemo_Advanced` sketch from rc-switch examples folder,
 open serial monitor in arduino and set the baudrate to 9600.
 
-then put in a battery in the rc remote and press some buttons. you should see something like this...
+then put in a battery in the rc remote control that came with the sockets and press some buttons. you should see data being printed in the serial monitor window.
+
+write down the numbers you receive.
+
+now connect the sender module like this...
+
+![sender](rc-switch_sender.jpg?raw=true "sender")
+
+and upload this code (edit the numbers in the code - use the ones you wrote down).
 
 ```cpp
 //before running this connect the receiver and use ReceiveDemo_Advanced
