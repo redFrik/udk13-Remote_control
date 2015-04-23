@@ -11,6 +11,22 @@ a system mainly for making synthetic sound. but can do a lot of other things as 
 
 http://supercollider.github.io/download.html
 
+first supercollider test code...
+```
+1+1+5
+
+s.boot
+
+{SinOsc.ar(MouseX.kr(140, 4000))}.play;
+{SinOsc.ar(MouseX.kr(240, 4000))}.play;
+{SinOsc.ar(MouseX.kr(340, 4000))}.play;
+{SinOsc.ar(MouseX.kr(440, 4000))}.play;
+{SinOsc.ar(MouseX.kr(540, 4000))}.play;
+{SinOsc.ar(MouseX.kr(640, 4000))}.play;
+```
+
+select the line you would like to run and select 'Evaluate Selection, Line or Region' under the Language menu.
+
 arduino
 --
 
@@ -18,6 +34,23 @@ a simple language + a hardware standard for simple electronics. can get input fr
 
 http://www.arduino.cc/en/Main/Software
 
+first arduino test code...
+```cpp
+void setup() {
+    Serial.begin(9600);
+}
+void loop() {
+    Serial.println(analogRead(A0));
+    delay(20);  //update rate in milliseconds
+}
+```
+upload this code, connect a bare wire to A0 and then open serial monitor. set baudrate to 9600.
+
+you should see something like this...
+
+![first_test_arduino](first_test_arduino.png?raw=true "first_test_arduino")
+
+the values should fluctuate and then go to 0 when you touch the A0 wire (it is acting like an antenna that you ground)
 
 150423
 ======
