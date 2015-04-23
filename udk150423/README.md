@@ -50,16 +50,16 @@ you should see something like this...
 
 ![first_test_arduino](first_test_arduino.png?raw=true "first_test_arduino")
 
-the values should fluctuate and then go to 0 when you touch the A0 wire (it is acting like an antenna that you ground)
+the values should fluctuate and then go to 0 when you touch the A0 wire (it is acting like an antenna picking up noise and that you ground by touching it)
 
 150423
 ======
 
-433.92MHz RC power sockets
+today's topic: 433.92MHz RC power sockets
 
-can control standard 220V power sockets remotely (≈ 30m distance).  easy and cheap to use but note: they react SLOW! often it takes more than a second after sending the command that the socket relay reacts and turns the power on/off.
+makes it easy to control standard 220V power sockets remotely (≈ 30m distance).  cheap and easy to use but note: they react SLOW! often it takes more than a second after sending the command that the socket relay reacts and turns the power on/off.
 
-i have used two different models. one gought at bauhaus and the other online at reichelt.
+i have used two different models. one bought at bauhaus and the other, home easy, online at [reichelt](http://www.reichelt.de/ELRO-HE808S/3/index.html?&ACTION=3&LA=446&ARTICLE=135910&artnr=ELRO+HE808S&SEARCH=ELRO+HE808S).
 
 ![bauhaus](bauhaus.jpg?raw=true "bauhaus")
 
@@ -70,7 +70,7 @@ prices vary and there are many different manufacturers and models. check maximum
 to control these sockets from your computer you also need a sender and receiver module. again there are different versions (some with very long range).
 i have these cheap modules and they work well with arduino: <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
 
-these modules are also easier to use if you download and install the rc-switch library (v.2.52) for arduino <https://code.google.com/p/rc-switch/>
+to use these modules i'd recommend to download and install the rc-switch library (v.2.52) for arduino <https://code.google.com/p/rc-switch/>
 
 connect a receiver module like this...
 
@@ -118,6 +118,107 @@ void loop() {
 }
 ```
 
+touch antenna light example
+--
+
+arduino code...
+
+```cpp
+//use ReceiveDemo_Advanced from rc-switch http://code.google.com/p/rc-switch/ to get the code
+
+//pin 10 to transmitter + 5v and gnd
+
+#include <RCSwitch.h>
+
+#define ON0 5574933     //edit
+#define OFF0 5574932    //edit
+
+RCSwitch mySwitch = RCSwitch();
+
+void setup() {
+    Serial.begin(9600);
+    mySwitch.enableTransmit(10);
+    mySwitch.setPulseLength(183);
+    mySwitch.send(OFF0, 24);
+}
+void loop() {
+    Serial.println(analogRead(A0));
+    if(analogRead(A0)==0 || (analogRead(A0)==1023)) {
+        mySwitch.send(ON0, 24);
+    } else {
+        mySwitch.send(OFF0, 24);
+    }
+    delay(50);
+}
+```
+
+upload this code and connect a bare wire to A0. touch it to turn on the light.
+
+pitch control light example
+--
+
+arduino code...
+
+```cpp
+//pin 10 to transmitter + 5v and gnd
+
+#include <RCSwitch.h>
+
+#define ON0 5574933     //edit
+#define OFF0 5574932    //edit
+
+RCSwitch mySwitch = RCSwitch();
+
+void setup() {
+    Serial.begin(9600);
+    mySwitch.enableTransmit(10);
+    mySwitch.setPulseLength(183);
+    mySwitch.send(OFF0, 24);
+}
+void loop() {
+    if(Serial.available()) {
+        int val= Serial.read();
+        if(val==65) {   //65 is ascii character A
+            mySwitch.send(ON0, 24);
+        } else if(val==66) {    //66 is ascii character B
+            mySwitch.send(OFF0, 24);
+        }
+    }
+    delay(50);
+}
+```
+
+
+supercollider code...
+
+```
+SerialPort.listDevices
+
+a= SerialPort("/dev/tty.usbserial-A101NAZV", 9600, crtscts: true)
+a.put(65)//relay with light on
+a.put(66)//relay with light off
+
+(
+{
+    var freq= Pitch.kr(SoundIn.ar())[0];    //pitch track microphone
+    SendReply.kr(Impulse.kr(1), '/freq', freq); //send pitch 1/sec
+    SinOsc.ar(freq, 0, [0, 0.1]);   //play soft in right speaker
+}.play
+)
+
+(
+OSCFunc({|msg|
+    msg[3].postln;
+    if(msg[3]>1000 && (msg[3]<1100), { //pitch within 1000-1100hz
+        "turn light on".postln;
+        a.put(65);
+    }, {
+        "turn light off".postln;
+        a.put(66);
+    });
+}, \freq)
+)
+```
 
 resources
 =========
