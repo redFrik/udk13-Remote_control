@@ -63,6 +63,7 @@ microphone input
 --
 
 note: turn down computer volume before trying the next examples. it will feedback.
+if you don't get any sound input double check that you have the built-in microphone selected under system preferences / audio / input.
 
 ```
 Ndef(\mic, { SoundIn.ar!2 } ).play  //!2 means duplicate the sound (in both speakers)
@@ -102,6 +103,22 @@ Ndef(\saw -> \c).stop
 the gui for remote servers should look like this...
 
 ![remote_server](remote_server.png?raw=true "remote_server")
+
+advanced
+--
+
+to reduce sample rate and bit resolution you can use the Latch ugen (sample and hold) in combination with the .round method.
+```
+Ndef(\bitCrusher, {Latch.ar(SinOsc.ar(400), Impulse.ar(5000)).round(0.001)!2}).play
+s.scope
+
+//with mic input and mouse x/y control
+Ndef(\bitCrusher, {Latch.ar(DelayN.ar(SoundIn.ar, 1, 1), Impulse.ar(MouseX.kr(500, 10000).poll)).round(MouseY.kr(0, 0.1))!2}).play
+```
+
+so here the sine wave is both down sampled (sample rate) and rounded off in resolution (number of bits).
+
+![bitCrusher](bitCrusher.png?raw=true "bitCrusher")
 
 resources
 =========
