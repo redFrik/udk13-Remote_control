@@ -23,7 +23,7 @@ Ndef(\first, {SinOsc.ar([400, 403])}).play
 
 Ndef(\first, {SinOsc.ar([400, 402])}).play
 
-Ndef(\first, {SinOsc.ar([400, 398])}).play
+Ndef(\first, {SinOsc.ar([400, 399])}).play
 //notice how you replace the sound
 
 //playing more sounds at the same time...
@@ -33,37 +33,45 @@ Ndef(\second, {SinOsc.ar([300.5, 303])}).play
 
 Ndef(\third, {SinOsc.ar([700, 707])}).play
 
-Ndef(\fourth, {SinOsc.ar([703, 708])}).play
+Ndef(\fourth, {SinOsc.ar([603, 606])}).play
 
-NdefMixer(s)
+NdefMixer(s) //here you can mix and start/stop your sounds
+```
 
+now you have a simple sine tone synthesizer with gui control.
+save the code in a with a .scd file extension and the next time you need to do some pads/drones just open it up and start exploring / tuning.
+
+to record your sounds to a soundfile...
+
+```
 s.makeWindow
+```
+and click 'record' to start recording a soundfile. click again to stop. the resulting aiff file will end up in your home / music / supercollider recordings folder (on mac osx)
 
-//and click 'record' to start recording a soundfile
-//click again to stop
-
-//stop sound with cmd+. (or alt+. on windows)
-
-//run a lot of code at the same time.  add () and ;
-//this is called a 'block' of code
+to run a lot of code at the same time add `()` and `;`. this is called a 'block' of code.
+```
 (
 Ndef(\third, {SinOsc.ar([700, 707])}).play;
 Ndef(\fourth, {SinOsc.ar([703, 708])}).play;
 )
 ```
 
+the part of the code that looks like this... `SinOsc.ar([400, 404])` means play a sine tone with frequency 400Hz in left speaker, and another sine tone on with 404Hz in the right.
+
 microphone input
 --
+
+note: turn down computer volume before trying the next examples. it will feedback.
 
 ```
 Ndef(\mic, { SoundIn.ar!2 } ).play  //!2 means duplicate the sound (in both speakers)
 
-Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1)!2 }).play
+Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1)!2 }).play  //one second delay - note how SoundIn is 'inside' the DelayN
 
 //ring modulation (multiply two sounds together)
-Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1) * SinOsc.ar(500)!2 }).play    //classic robotic effect
+Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1) * SinOsc.ar(500)!2 }).play    //classic robotic effect - try changing freqency (500)
 
-Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1) * SinOsc.ar(5)!2 }).play       //much slower
+Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1) * SinOsc.ar(5)!2 }).play       //also try with a much lower frequency - tremolo?
 ```
 
 remote sc server
@@ -80,18 +88,19 @@ s.reboot    //reboot your local server
 f= Server(\f, NetAddr("192.168.43.132", 57110)).makeWindow  //here add the ip of the other computer
 f.boot
 f.initTree
-Ndef(\noise9999 -> \f, { SinOsc.ar(1700) }).play
-Ndef(\noise9999 -> \f, { SinOsc.ar(1700) }).stop
+Ndef(\noise9999 -> \f, { WhiteNoise.ar(0.2) }).play
+Ndef(\noise9999 -> \f).stop
 
+Ndef(\noise9999 -> \f).clear    //completely remove the sound
 
-
-c= Server(\c, NetAddr("192.168.43.91", 57110))  //another computer
-Ndef(\saw -> \c, {Saw.ar}).play
-c.makeWindow
+c= Server(\c, NetAddr("192.168.43.91", 57110)).makeWindow  //another computer
+Ndef(\saw -> \c, {Saw.ar}).play //another sound
+Ndef(\saw -> \c).stop
 ```
 
+the gui for remote servers should look like this...
 
-
+![remote_server](remote_server.png?raw=true "remote_server")
 
 resources
 =========
