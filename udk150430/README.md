@@ -126,3 +126,5 @@ resources
 a gentle introduction to supercollider <https://ccrma.stanford.edu/~ruviaro/texts/A_Gentle_Introduction_To_SuperCollider.pdf>
 
 Eli Fieldsteel's youtube tutorials <https://www.youtube.com/playlist?list=PLPYzvS8A_rTaNDweXe6PX4CXSGq4iEWYC>
+
+David Cottle's computer music <http://www.mat.ucsb.edu/275/CottleSC3.pdf>
