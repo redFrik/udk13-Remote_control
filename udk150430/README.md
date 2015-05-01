@@ -83,13 +83,14 @@ above you played all sound on your default local server `s` (compare `s.boot`), 
 to test the code below you will need two or more computers running supercollider connected to the same network (same wifi for example).
 
 ```
-s.reboot    //reboot your local server
+s.options.maxLogins= 10 //number of allowed connections
+s.reboot    //and reboot your local server
 
 //find out the IP address of the other computer (osx - see under system preferences / network)
 
 f= Server(\f, NetAddr("192.168.43.132", 57110)).makeWindow  //here add the ip of the other computer
 f.boot
-f.initTree
+//f.initTree
 Ndef(\noise9999 -> \f, { WhiteNoise.ar(0.2) }).play
 Ndef(\noise9999 -> \f).stop
 
