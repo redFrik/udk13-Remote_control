@@ -39,16 +39,17 @@ NdefMixer(s) //here you can mix and start/stop your sounds
 ```
 
 now you have a simple sine tone synthesizer with gui control.
-save the code in a with a .scd file extension and the next time you need to do some pads/drones just open it up and start exploring / tuning.
+save the code in a with a .scd file extension and the next time you need to do some pads/drones just open the file and start exploring / tuning / modifying.
 
 to record your sounds to a soundfile...
 
 ```
-s.makeWindow
+s.makeWindow    //click 'record' to start recording a soundfile
+//click again to stop.
 ```
-and click 'record' to start recording a soundfile. click again to stop. the resulting aiff file will end up in your home / music / supercollider recordings folder (on mac osx)
+the resulting aiff file will end up in your home / music / supercollider recordings folder (on mac osx)
 
-to run a lot of code at the same time add `()` and `;`. this is called a 'block' of code.
+to run a lot of code at the same time add `()` around it and and `;` in the end of each line. this is called a 'block' of code.
 ```
 (
 Ndef(\third, {SinOsc.ar([700, 707])}).play;
@@ -56,7 +57,7 @@ Ndef(\fourth, {SinOsc.ar([703, 708])}).play;
 )
 ```
 
-the part of the code that looks like this... `SinOsc.ar([400, 404])` means play a sine tone with frequency 400Hz in left speaker, and another sine tone on with 404Hz in the right.
+the part of the code that looks like this... `SinOsc.ar([400, 404])` means play a sine tone with frequency 400Hz in left speaker, and another sine tone on with 404Hz in the right. connect headphones and start playing around with different beating frequencies.
 
 microphone input
 --
@@ -77,13 +78,13 @@ Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1) * SinOsc.ar(5)!2 }).play       //also t
 remote sc server
 --
 
-just like you played sound on you local server (s - compare s.boot), you can play at other servers if you know the network address (IP) of the server.
+above you played all sound on your default local server `s` (compare `s.boot`), in supercollider you can also play sound on other remote servers if you know the network address (IP).
 to test the code below you will need two or more computers running supercollider connected to the same network (same wifi for example).
 
 ```
 s.reboot    //reboot your local server
 
-//find out the ip of the other computer (osx - see under system preferences / network)
+//find out the IP address of the other computer (osx - see under system preferences / network)
 
 f= Server(\f, NetAddr("192.168.43.132", 57110)).makeWindow  //here add the ip of the other computer
 f.boot
