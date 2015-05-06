@@ -11,7 +11,7 @@ dates
 -----
 - [x] [23apr 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150423): introduction and presentation of course, rc switch (433MHz)
 - [x] [30apr 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150430): remote servers with supercollider
-- [ ] 07maj 14-16:
+- [ ] [07maj 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150507): network messages with supercollider
 - [ ] 14maj: **NO CLASS** (holiday)
 - [ ] 21maj: **NO CLASS**
 - [ ] 28maj 14-16:
