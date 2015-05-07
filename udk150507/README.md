@@ -57,7 +57,7 @@ s.boot;
 (
 OSCFunc({|msg|
     msg.postln;
-    Ndef(\snd, {SinOsc.ar(msg[2])*Line.ar(1, 0, 0.1)}).play;
+    Ndef(\snd, {SinOsc.ar(msg[2])*Line.ar(1, 0, 0.1)}).play;    //ping sound when message received
 }, \hiho);  //receive this type of messages (could be anything - just match with sendMsg below)
 )
 
@@ -112,6 +112,7 @@ Ndef(\perc, {WhiteNoise.ar*LFPulse.ar(2)!2}).play
 Ndef(\perc, {SinOsc.ar(400)*LFPulse.ar(2)!2}).play
 Ndef(\perc, {SoundIn.ar(0)*LFPulse.ar(2)!2}).play
 
+//alarms!
 Ndef(\perc, {LFPulse.ar(500)*LFPulse.ar(2)!2}).play
 Ndef(\perc, {LFPulse.ar(600)*LFPulse.ar(3)!2}).play
 Ndef(\perc, {LFPulse.ar(700)*LFPulse.ar(4)!2}).play
@@ -155,9 +156,9 @@ advanced
 --
 
 here we set up envelopes that are triggered with some low frequency oscillator.
-then you have more control over the shape of the sound - also try Env.adsr and Env.new
+then you have more control over the shape of the sound - also try `Env.adsr` and `Env.new` and the curve argument.
 
-``
+```
 //more advanced envelopes (Env.perc)
 Ndef(\perc, {ClipNoise.ar(1)*EnvGen.ar(Env.perc(0.01, 0.9), LFPulse.ar(4))}).play
 Ndef(\perc, {SinOsc.ar(400)*EnvGen.ar(Env.perc(0.01, 0.1), LFPulse.ar(4))}).play
