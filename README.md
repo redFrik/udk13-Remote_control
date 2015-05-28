@@ -14,7 +14,7 @@ dates
 - [x] [07maj 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150507): network messages with supercollider
 - [ ] 14maj: **NO CLASS** (holiday)
 - [ ] 21maj: **NO CLASS**
-- [ ] [28maj 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150528): arduino and the sc serial port
+- [x] [28maj 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150528): arduino and the sc serial port
 - [ ] 04jun 14-16:
 - [ ] 11jun 14-16:
 - [ ] 18jun 14-16:
