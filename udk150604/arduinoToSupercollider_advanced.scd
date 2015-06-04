@@ -5,7 +5,7 @@
 
 SerialPort.listDevices;
 s.boot;
-Ndef(\arduino, {|data= #[0, 0, 0, 0, 0, 0]| Splay.ar(SinOsc.ar(data.lag(0.02)+500, 0, 0.4))}).play;
+Ndef(\arduino, {Splay.ar(SinOsc.ar(\data.kr(0!6).lag(0.02)+500, 0, 0.4))}).play;
 
 (
 var port= SerialPort("/dev/tty.usbserial-A101NB76", 115200, crtscts: true);
