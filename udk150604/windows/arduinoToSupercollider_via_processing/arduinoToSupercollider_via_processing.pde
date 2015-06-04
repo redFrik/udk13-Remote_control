@@ -2,6 +2,9 @@
 //first upload 'arduinoToSupercollider_simple' to your arduino
 //then start the supercollider patch 'arduinoToSupercollider_simple1.scd'
 //last run this sketch
+
+//note: you will need to install the OscP5 library
+//go to sketch/import library/add library and search for OscP5
 import oscP5.*;
 import netP5.*;
 import processing.serial.*;
@@ -18,7 +21,7 @@ void setup() {
 void draw() {
   if ( myPort.available() > 0) {  // If data is available,
     int val = myPort.read();         // read it and store it in val
-    OscMessage msg= new OscMessage("serial");
+    OscMessage msg= new OscMessage("/serial");
     msg.add(val);
     oscP5.send(msg, sc);
   }
