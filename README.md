@@ -15,7 +15,7 @@ dates
 - [ ] 14maj: **NO CLASS** (holiday)
 - [ ] 21maj: **NO CLASS**
 - [x] [28maj 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150528): arduino and the sc serial port
-- [ ] 04jun 14-16:
+- [ ] [04jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604): more arduino and the sc serial port
 - [ ] 11jun 14-16:
 - [ ] 18jun 14-16:
 - [ ] 25jun 14-16:
