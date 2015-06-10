@@ -1,5 +1,5 @@
 //ascii test program
-//upload and then run serial monitor
+//upload and then run serial monitor (cmd+shift+m on osx)
 byte cnt;
 
 void setup() {
@@ -7,7 +7,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.write(66);  //0-255  (8bit number)
+  Serial.write(cnt);  //0-255  (8bit number)
   cnt = cnt + 1;
   delay(50);
 }

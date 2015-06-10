@@ -8,7 +8,7 @@ please bring an arduino if you have one
 
 ```cpp
 //ascii test program
-//upload and then run serial monitor
+//upload and then run serial monitor (cmd+shift+m on osx)
 byte cnt;
 
 void setup() {
@@ -16,14 +16,49 @@ void setup() {
 }
 
 void loop() {
-    Serial.write(66);  //0-255  (8bit number)
+    Serial.write(cnt);  //0-255  (8bit number)
     cnt = cnt + 1;
     delay(50);
 }
 ```
 
+should look something like this...
+
+![udk_arduino_sc01](udk_arduino_sc01.png.png?raw=true "udk_arduino_sc01")
+
+note the baudrate should be set to 9600 in the lower right corner.
+
+now try this with an input...
+
+```cpp
+//connect a wire to pin6 and then run this sketch
+//when the wire is touching gnd then A or B will show in serial monitor
+byte lastByte;
+void setup() {
+    Serial.begin(9600);
+    pinMode(6, INPUT_PULLUP);
+}
+
+void loop() {
+    if(digitalRead(6)==0) {
+        if(lastByte!=65) {  //filter out repetitions
+            Serial.write(65);  //write 'A' to serial port
+            lastByte= 65;
+        }
+    } else {
+        if(lastByte!=66) {  //filter out repetitions
+            Serial.write(66);  //write 'B' to serial port
+            lastByte= 66;
+        }
+    }
+    delay(100);
+}
+```
+
 arduino to sc
 --
+
+upload this code to the arduino...
 
 ```cpp
 //arduino code
@@ -43,6 +78,10 @@ void loop() {
     delay(5);  //0.5sec wait
 }
 ```
+
+and then run this in supercollider...
+
+NOTE: on there is no serialport for sc on windows - see next week for a workaround.
 
 ```
 //supercollider code
