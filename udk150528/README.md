@@ -157,8 +157,8 @@ Routine.run({
 });
 )
 
-//A = play soundfile
-//B = stop soundfile
-//C = distort on
-//D = distort off
+//A = play soundfile    (pin6 to gnd)
+//B = stop soundfile    (pin6 disconnected)
+//C = distort on        (pin7 to gnd)
+//D = distort off       (pin7 disconnected)
 ```
