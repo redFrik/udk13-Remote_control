@@ -28,7 +28,7 @@ should look something like this...
 
 note the baudrate should be set to 9600 in the lower right corner.
 
-now try this with an input...
+now try the following with a wire acting as an input. when it is connected to ground the program will write an 'A' to the serial port, when disconnected from ground (gnd) it will write 'B'.
 
 ```cpp
 //connect a wire to pin6 and then run this sketch
@@ -57,11 +57,37 @@ void loop() {
 
 arduino to sc
 --
+start supercollider and run the following code (make sure you have the arduino code right above loaded)...
+
+```
+SerialPort.listDevices;
+
+(
+p= SerialPort("/dev/tty.usbserial-A101NB79", 9600, crtscts: true);
+CmdPeriod.doOnce({p.close});//extra safety
+Routine.run({
+    inf.do{
+        var byte= p.read;//values 0-255
+        byte.asAscii.postln;
+    };
+});
+)
+```
+
+this should just also just post 'A' or 'B', but it will show you how to open and read values from the serial port from within supercollider.
+
+NOTE: on there is no serialport for sc on windows - see next week for a workaround.
+
+NOTE: make sure you have closed the serial monitor in arduino - only one program can open a certain serialport at a time.
+
+more elaborate sound example
+--
 
 upload this code to the arduino...
 
 ```cpp
 //arduino code
+byte lastByte, lastByte2;
 void setup() {
     pinMode(6, INPUT_PULLUP);  //connects via resistor to 5v
     pinMode(7, INPUT_PULLUP);  //connects via resistor to 5v
@@ -70,18 +96,22 @@ void setup() {
 void loop() {
     byte val; //8bit value (0-255)
     val = digitalRead(6);  //0 or 1
-    Serial.write(65+val);  //65 or 66 (A or B)
+    if (lastByte != val) {
+        Serial.write(65 + val); //65 or 66 (A or B)
+        lastByte = val;
+    }
     
     byte val2;
     val2 = digitalRead(7);
-    Serial.write(67+val2);  //67 or 68 (C or D)
-    delay(5);  //0.5sec wait
+    if (lastByte2 != val2) {
+        Serial.write(67 + val2); //67 or 68 (C or D)
+        lastByte2 = val2;
+    }
+    delay(5);  //5 millisecond wait
 }
 ```
 
 and then run this in supercollider...
-
-NOTE: on there is no serialport for sc on windows - see next week for a workaround.
 
 ```
 //supercollider code
@@ -89,8 +119,8 @@ SerialPort.listDevices;
 
 (
 b.free;
-b= Buffer.read(s, "/Users/abc/mysounds/bell1.wav"); //edit to match a soundfile on your harddrive
-p= SerialPort("/dev/tty.usbserial-A101NB79", 9600, crtscts: true);  //edit to match serial device
+b= Buffer.read(s, "/Users/abc/sounds/bell1.wav");   //edit this
+p= SerialPort("/dev/tty.usbserial-A101NB6Z", 9600, crtscts: true);  //edit here too
 CmdPeriod.doOnce({p.close});//extra safety
 Routine.run({
     var playing= false;
@@ -126,8 +156,6 @@ Routine.run({
     };
 });
 )
-65.asAscii.class
-65.asAscii==$A
 
 //A = play soundfile
 //B = stop soundfile

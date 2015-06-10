@@ -3,7 +3,7 @@ SerialPort.listDevices;
 (
 b.free;
 b= Buffer.read(s, "/Users/Stirling/PollySounds/choir/bell/bell1.wav");
-p= SerialPort("/dev/tty.usbserial-A101NB79", 9600, crtscts: true);
+p= SerialPort("/dev/tty.usbserial-A101NB6Z", 9600, crtscts: true);
 CmdPeriod.doOnce({p.close});//extra safety
 Routine.run({
 	var playing= false;
@@ -39,8 +39,6 @@ Routine.run({
 	};
 });
 )
-65.asAscii.class
-65.asAscii==$A
 
 //A = play soundfile
 //B = stop soundfile
