@@ -24,7 +24,7 @@ void loop() {
 
 should look something like this...
 
-![udk_arduino_sc01](udk_arduino_sc01.png.png?raw=true "udk_arduino_sc01")
+![udk_arduino_sc01](udk_arduino_sc01.png?raw=true "udk_arduino_sc01")
 
 note the baudrate should be set to 9600 in the lower right corner.
 
