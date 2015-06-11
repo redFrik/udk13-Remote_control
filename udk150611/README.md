@@ -5,7 +5,7 @@ control signals
 
 here we will use mouse x and y position to simulate (analogue) sensor inputs.
 
-some important topics are demonstrated that really can change the way a sensor input behaves.  using it as a switch (threshold), mixing and averaging control signals, smoothing (lag), differentiating to detect change, quantizing (round), delaying the signal to make it less immediate and more complex response, etc.
+some important topics are demonstrated that really can change the way a sensor input behaves.  using it as a switch (threshold), mixing and averaging control signals, smoothing (lag) and envelopes (lagud), differentiating to detect change, quantizing (round), delaying the signal to make it less immediate and more complex response, etc.
 
 ```
 s.boot
@@ -27,6 +27,8 @@ s.boot
 //--average
 
 {((MouseX.kr(0, 1)+MouseY.kr(0, 1))/2).poll}.play
+
+//--smoothing
 
 {(MouseX.kr(0, 1)>0.75).lag(3)*SinOsc.ar([400, 404])}.play
 
@@ -53,7 +55,7 @@ Blip, LFTri, Saw, Pulse, Impulse
 {(MouseX.kr(0, 1)>0.55).lagud(0.5, 8)*Impulse.ar([800, 808])}.play;
 )
 
-//--smoothing
+//--smoothing pitch
 
 {SinOsc.ar(MouseX.kr(200, 2000, 1))}.play;  //no smooth
 {SinOsc.ar(MouseX.kr(200, 2000, 1).lag(4))}.play;   //a lot of smoothing
@@ -87,6 +89,8 @@ Blip, LFTri, Saw, Pulse, Impulse
 {SinOsc.ar(MouseX.kr(200, 2000, 1))*HPZ1.kr(MouseY.kr(0, 1000)).lag(0.05)}.play
 
 {SinOsc.ar(HPZ1.kr(MouseX.kr(200, 2000, 1)*1000).lag(0.2))*HPZ1.kr(MouseY.kr(0, 1000)).lag(0.05)}.play
+
+//HPZ1 basically takes the difference between current and previous sample (here current and previous mouse position)
 
 //--delay
 
