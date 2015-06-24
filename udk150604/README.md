@@ -7,7 +7,7 @@ please bring an arduino if you have one
 
 arduino to sc
 --
-upload the arduino code 'arduinoToSupercollider_simple.ino'.
+upload the arduino code [arduinoToSupercollider_simple.ino](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_simple/arduinoToSupercollider_simple.ino).
 
 either connect a single loose wire to A0 (to get noise input), or a potentiometer (pot) or a light sensor (ldr).
 
@@ -15,9 +15,9 @@ either connect a single loose wire to A0 (to get noise input), or a potentiomete
 
 ![ldr](light_sensor_bb.png?raw=true "ldr")
 
-then run 'arduinoToSupercollider_simple1.scd' in supercollider.
+then run [arduinoToSupercollider_simple1.scd](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_simple1.scd) in supercollider.
 
-also try 'arduinoToSupercollider_simple2.scd' in supercollider to control the playback speed of a soundfile.
+also try [arduinoToSupercollider_simple2.scd](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_simple2.scd) in supercollider to control the playback speed of a soundfile.
 
 windows
 --
