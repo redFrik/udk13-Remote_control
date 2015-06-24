@@ -3,7 +3,7 @@
 SerialPort.listDevices//check the name and copy into the first line below
 
 (
-var port= SerialPort("/dev/tty.usbserial-A101NB76", 38400, crtscts: true);//edit
+var port= SerialPort("/dev/tty.usbserial-A101NB6Z", 38400, crtscts: true);//edit
 CmdPeriod.doOnce({port.close});
 s.waitForBoot{
 	Ndef(\mic, {
