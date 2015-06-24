@@ -121,7 +121,7 @@ use the arduino code from last week.
 
 * upload [arduinoToSupercollider_simple.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150604/arduinoToSupercollider_simple/arduinoToSupercollider_simple.ino)
 
-* connect a lightsensor with a resistor to pin A0 (voltage divider)
+* connect a lightsensor with a 10K resistor to pin A0 (voltage divider)
 
 * run the code below in supercollider
 
