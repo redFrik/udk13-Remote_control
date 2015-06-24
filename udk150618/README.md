@@ -42,3 +42,19 @@ upload [single_led_control.ino](https://github.com/redFrik/udk13-Remote_control/
 then run [single_led_control.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control.scd) in supercollider.
 
 now try [single_led_control.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control2.scd) and [single_led_control.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control3.scd). version 2 and 3 are optimizations of the first version. they send less data through the serial port.
+
+connect a led with a resistor (120ohm) to pin13 like this...
+
+![led](led_bb.png?raw=true "led")
+
+advanced
+--
+try the [pitch_range_trigger.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/pitch_range_trigger.scd) to turn on/off the led when the fundamental pitch is in a certain range.
+
+try to incorporate amplitude tracking and trigger the only on loud sounds.
+
+work with lag, delay, round etc to refine the behaviour. see [control signals](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150611#control-signals) from last week.
+
+windows
+--
+there is no serial port in supercollider windows. to get around that problem you can run [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150618/windows/supercolliderToArduino_via_processing/supercolliderToArduino_via_processing.pde) small relay program in [Processing](http://processing.org). it is also possible to use puredata, python or maxmsp - basically any program that has both a serial port and opensoundcontrol objects.

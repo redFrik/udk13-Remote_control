@@ -1,11 +1,8 @@
-//use with arduino sketch 'single_led_control.ino'
+//use with arduino sketch 'single_led_control.ino' and the 'supercolliderToArduino_via_processing' processing sketch
 //turns on the led if the fundamental pitch is somewhere between 230 and 250 Hz
 
-SerialPort.listDevices//check the name and copy into the first line below
-
 (
-var port= SerialPort("/dev/tty.usbserial-A101NB76", 38400, crtscts: true);//edit
-CmdPeriod.doOnce({port.close});
+var n= NetAddr("127.0.0.1", 12000);
 s.waitForBoot{
 	Ndef(\mic, {
 		var input= SoundIn.ar;
@@ -18,11 +15,11 @@ s.waitForBoot{
 		if(msg[3]==1, {
 			"!!!!!!!!!!!!".postln;
 			msg.postln;
-			port.put(65);
+			n.sendMsg("serial", 65);
 		}, {
 			"stopping".postln;
 			msg.postln;
-			port.put(66);
+			n.sendMsg("serial", 66);
 		});
 	}, \mic);
 }
