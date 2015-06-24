@@ -7,12 +7,12 @@ IRrecv irrecv(11);
 decode_results results;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(38400);
   irrecv.enableIRIn();
 }
 void loop() {
   if (irrecv.decode(&results)) {
-    Serial.println(results.value, HEX);
+    Serial.println(results.value);
     irrecv.resume();
   }
 }
