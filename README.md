@@ -18,7 +18,7 @@ dates
 - [x] [04jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604): more arduino and the sc serial port
 - [x] [11jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150611): control signals
 - [x] [18jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150618): analysis
-- [ ] 25jun 14-16:
+- [ ] [25jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150625): ir remotes
 - [ ] 02jul 14-16:
 - [ ] 09jul 14-16:
 - [ ] 16jul: **NO CLASS**
