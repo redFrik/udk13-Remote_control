@@ -19,10 +19,12 @@ then run [arduinoToSupercollider_simple1.scd](https://github.com/redFrik/udk13-R
 
 also try [arduinoToSupercollider_simple2.scd](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_simple2.scd) in supercollider to control the playback speed of a soundfile.
 
+note: the light sensor (ldr) needs an additional 10K resistor. read about voltage dividers [here](https://learn.sparkfun.com/tutorials/voltage-dividers)
+
 advanced
 --
-to read six analog sensors at high speed and in full resolution, upload the [arduinoToSupercollider_advanced.ino](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_advanced/arduinoToSupercollider_advanced.ino) to an arduino, and then use the [arduinoToSupercollider_advanced.scd](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_advanced.scd) example in supercollider.
+to read six analog sensors at high speed and in full 10bit (0-1023) resolution, upload the [arduinoToSupercollider_advanced.ino](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_advanced/arduinoToSupercollider_advanced.ino) to an arduino, and then use the [arduinoToSupercollider_advanced.scd](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/arduinoToSupercollider_advanced.scd) example in supercollider.
 
 windows
 --
-there is no serial port in supercollider windows. to get around that problem you can run [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/windows/arduinoToSupercollider_via_processing/arduinoToSupercollider_via_processing.pde) small relay program in [Processing](http://processing.org). it is also possible to use puredata, python or maxmsp - basically any program that has a serial port and opensoundcontrol objects.
+there is no serial port in supercollider windows. to get around that problem you can run [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150604/windows/arduinoToSupercollider_via_processing/arduinoToSupercollider_via_processing.pde) small relay program in [Processing](http://processing.org). it is also possible to use puredata, python or maxmsp - basically any program that has both a serial port and opensoundcontrol objects.
