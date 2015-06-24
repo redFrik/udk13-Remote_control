@@ -41,7 +41,7 @@ two weeks ago we did [arduino to supercollider](https://github.com/redFrik/udk13
 upload [single_led_control.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control/single_led_control.ino) to the arduino board.
 then run [single_led_control.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control.scd) in supercollider.
 
-now try [single_led_control.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control2.scd) and [single_led_control.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control3.scd). version 2 and 3 are optimizations of the first version. they send less data through the serial port.
+now try [single_led_control2.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control2.scd) and [single_led_control3.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150618/single_led_control3.scd). version 2 and 3 are optimizations of the first version. they send less data through the serial port.
 
 connect a led with a resistor (120ohm) to pin13 like this...
 

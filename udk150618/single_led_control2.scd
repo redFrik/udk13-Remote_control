@@ -5,9 +5,10 @@
 SerialPort.listDevices//check the name and copy into the first line below
 
 (
-var port= SerialPort("/dev/tty.usbserial-A101NB6Z", 38400, crtscts: true);//edit
+var port= SerialPort("/dev/tty.usbserial-A101NB76", 38400, crtscts: true);//edit
 CmdPeriod.doOnce({port.close});
 s.waitForBoot{
+	var thresh= 0.1;
 	var state= 0;
 	Ndef(\mic, {
 		var input= SoundIn.ar;//from internal mic
@@ -17,7 +18,7 @@ s.waitForBoot{
 	}).play;
 	OSCFunc({|msg|
 		msg.postln;
-		if(msg[3]>0.1, {
+		if(msg[3]>thresh, {
 			"!!!!!!!!!!!!".postln;
 			if(state==0, {
 				state= 1;
