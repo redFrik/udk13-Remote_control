@@ -1,4 +1,4 @@
-//--use with arduinoToSupercollider_simple.ino
+//--use with arduinoToSupercollider_simple.ino and the 'arduinoToSupercollider_via_processing' processing sketch
 //this example controls the playback speed of a soundfile
 
 (

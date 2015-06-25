@@ -57,4 +57,4 @@ work with lag, delay, round etc to refine the behaviour. see [control signals](h
 
 windows
 --
-there is no serial port in supercollider windows. to get around that problem you can run [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150618/windows/supercolliderToArduino_via_processing/supercolliderToArduino_via_processing.pde) small relay program in [Processing](http://processing.org). it is also possible to use puredata, python or maxmsp - basically any program that has both a serial port and opensoundcontrol objects.
+there is no serial port in the current version of supercollider for windows. to get around that problem you can run [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150618/windows/supercolliderToArduino_via_processing/supercolliderToArduino_via_processing.pde) small relay program in [Processing](http://processing.org) together with [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150618/windows/pitch_range_trigger_win.scd) sc code. it is also possible to use puredata, python or maxmsp - basically any program that has both a serial port and opensoundcontrol objects.

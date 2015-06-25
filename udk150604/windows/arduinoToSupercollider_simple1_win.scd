@@ -1,5 +1,4 @@
-//--use with arduinoToSupercollider_simple.ino
-//and with
+//--use with arduinoToSupercollider_simple.ino and the 'arduinoToSupercollider_via_processing' processing sketch
 //this example controls the frequency of a sawtooth oscillator
 
 

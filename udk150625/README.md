@@ -36,3 +36,7 @@ ir remote to sc
 --
 upload the sketch [ir_to_supercollider.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150625/ir_to_supercollider/ir_to_supercollider.ino) (it is only a slight modification to the above ir_receive sketch).
 and then run the code in [ir_to_supercollider.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150625/ir_to_supercollider.scd). modify the keys to match your remote by pressing the remote buttons and look in the post window for key codes.
+
+windows
+--
+there is no serial port in the current version of supercollider for windows. to get around that problem you can run [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150625/windows/ir_receive_via_processing/ir_receive_via_processing.pde) small relay program in [Processing](http://processing.org) together with [this](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150625/windows/ir_to_supercollider_win.scd) sc code. it is also possible to use puredata, python or maxmsp - basically any program that has both a serial port and opensoundcontrol objects.
