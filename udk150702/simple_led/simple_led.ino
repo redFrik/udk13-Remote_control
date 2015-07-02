@@ -8,7 +8,7 @@ void setup() {
 void loop() {
   while (Serial.available()) {
     byte val = Serial.read();
-    analogWrite(11, val);
+    analogWrite(11, val); //val should be 0-255
   }
 }
 
