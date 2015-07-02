@@ -7,7 +7,7 @@ led
 --
 let us begin by fading in and out a single led from supercollider.
 
-connect the led together with a resistor to pin 11 like this...
+connect the led together with a resistor (100 to 1K) to pin 11 like this...
 
 ![simple_led](simple_led.jpg?raw=true "simple_led")
 
@@ -15,13 +15,15 @@ note the orientation of the led. the short leg / marking should go via the resis
 
 then upload the arduino sketch [simple_led.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/simple_led/simple_led.ino) and try the supercollider code in [simple_led.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/simple_led.scd).
 
+play with the curvature example and see how different the led can behave.
+
 leds
 --
 to control more leds connect six leds using the same resistor+led setup for each of the pwm-enabled (~) arduino output pins (3, 5, 6, 9, 10, 11).
 
 upload the arduino sketch [six_pwm.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/six_pwm/six_pwm.ino) and try the supercollider code in [six_pwm.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/six_pwm.scd).
 
-motors
+dc motors
 --
 note: never connect anything that draws more than 40mA directly to the arduino output pins. that means basically nothing more than one or two leds per pin.
 
@@ -41,6 +43,16 @@ note: if you are using a bigger motor (like in the picture) and need more than 5
 now again try the six_pwm code from above. instead of fade leds the motor speed will vary. the polarity (+/-) of the dc motor does not matter here.
 
 note: dc motors can be recognised as they only have two wires. there are also stepper and servo motors but they have more wires.
+
+servo motors
+--
+connect 5V, pin9 and gnd to a servo.
+
+upload the arduino sketch [servo.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/servo/servo.ino) and try the supercollider code in [servo.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/servo.scd).
+
+![servo](servo.jpg?raw=true "servo")
+
+more info [here](https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-motors?view=all)
 
 advanced - many leds
 --
