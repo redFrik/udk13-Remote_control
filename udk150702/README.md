@@ -57,3 +57,11 @@ more info [here](https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-mot
 advanced - many leds
 --
 six pwm channels is the maximum on the standard arduino. to get more one can either use softpwm (flipping digital pins on/off very fast in your code), buy a special pwm module like [adafruit 24channel pwm](https://www.adafruit.com/product/1429) or a cheaper pwm chip like the [tlc5940](http://tronixstuff.com/2013/10/21/tutorial-arduino-tlc5940-led-driver-ic/).
+
+extra
+--
+to send osc commands from supercollider to [processing](http://www.processing.org) look at [supercolliderToProcessing.pde](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra/supercolliderToProcessing/supercolliderToProcessing.pde) and [supercolliderToProcessing.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra/supercolliderToProcessing.scd)
+
+extra2
+--
+in the folder [extra2](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra2/) there are some python examples that show how to receive osc commands and control gpio pins on a raspberry pi. see the file readme.txt for more information.
