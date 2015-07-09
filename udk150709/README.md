@@ -6,10 +6,10 @@ repetition
 arduino & supercollider together with...
 
 * leds
-* dcmotors/solenoids
-* server motor
-* 433mhz radio (220v)
-* ir remote
+* dcmotors/solenoids (with tip120)
+* server motor (no additional driver)
+* 433mhz radio (220v relays)
+* ir remote (infra red receiver)
 * sensors:
     shock
     light
