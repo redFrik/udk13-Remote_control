@@ -20,7 +20,7 @@ dates
 - [x] [18jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150618): analysis
 - [x] [25jun 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150625): ir remotes
 - [x] [02jul 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150702): actuators (leds, solenoids, motors etc)
-- [ ] 09jul 14-16: repetition
+- [x] [09jul 14-16](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150709): repetition
 - [ ] 16jul: **NO CLASS**
 
 (and we might do some longer sessions (14-17))
