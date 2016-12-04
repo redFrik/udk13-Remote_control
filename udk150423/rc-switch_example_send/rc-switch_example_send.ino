@@ -1,5 +1,5 @@
 //before running this connect the receiver and use ReceiveDemo_Advanced
-//from rc-switch http://code.google.com/p/rc-switch/ to get the numbers
+//from rc-switch https://github.com/sui77/rc-switch/ to get the numbers
 
 //for the below code connect arduino pin 10, 5v and gnd to transmitter.
 

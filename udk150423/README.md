@@ -71,7 +71,7 @@ prices vary and there are many different manufacturers and models. check maximum
 to control these sockets from your computer you also need a sender and receiver module. again there are different versions (some with very long range).
 i have these cheap modules and they work well with arduino: <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
 
-to use these modules i'd recommend to download and install the rc-switch library (v.2.52) for arduino <https://code.google.com/p/rc-switch/>
+to use these modules i'd recommend to download and install the rc-switch library (v.2.52) for arduino <https://github.com/sui77/rc-switch/>
 
 connect a receiver module like this...
 
@@ -92,7 +92,7 @@ and upload this code (edit the numbers in the code - use the ones you wrote down
 
 ```cpp
 //before running this connect the receiver and use ReceiveDemo_Advanced
-//from rc-switch http://code.google.com/p/rc-switch/ to get the numbers
+//from rc-switch https://github.com/sui77/rc-switch/ to get the numbers
 
 //for the below code connect arduino pin 10, 5v and gnd to transmitter.
 
@@ -127,7 +127,7 @@ connect a 220v lamp to a relay.
 arduino code...
 
 ```cpp
-//use ReceiveDemo_Advanced from rc-switch http://code.google.com/p/rc-switch/ to get the code
+//use ReceiveDemo_Advanced from rc-switch https://github.com/sui77/rc-switch/ to get the code
 
 //pin 10 to transmitter + 5v and gnd
 
@@ -226,7 +226,7 @@ OSCFunc({|msg|
 resources
 =========
 
-rc-switch arduino library <https://code.google.com/p/rc-switch/>
+rc-switch arduino library <https://github.com/sui77/rc-switch/>
 
 blog entry about rc switches <https://sui77.wordpress.com/2011/04/12/163/>
 
