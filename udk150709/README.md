@@ -33,7 +33,7 @@ arduino topics:
 questions:
 --
 how to set the amplitude for a pdef+pbind from arduino
-```
+```supercollider
 //technique one - use a variable and read it with pfunc
 ~myAmp= 1;
 Pdef(\test, Pbind(\amp, Pfunc({~myAmp}))).play;
@@ -42,7 +42,7 @@ Pdef(\test, Pbind(\amp, Pfunc({~myAmp}))).play;
 ~myAmp= 0.9;
 ```
 
-```
+```supercollider
 //technique two - use a control rate bus
 a= Bus.control(s);
 (
@@ -59,13 +59,13 @@ a.set(0.9);
 ```
 
 how to use ndef as an effect
-```
+```supercollider
 //technique one - embedd
 Ndef(\a, {LFTri.ar([500, 505], 0, Decay.ar(Impulse.ar(1), 0.3))});
 Ndef(\b, {GVerb.ar(Ndef.ar(\a))}).play;
 ```
 
-```
+```supercollider
 //technique two - the filter method
 Ndef(\c, {LFTri.ar([500, 505], 0, Decay.ar(Impulse.ar(1), 0.3))});
 Ndef(\c).filter(1, {|snd| GVerb.ar(snd)})

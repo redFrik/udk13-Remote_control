@@ -59,7 +59,7 @@ arduino to sc
 --
 start supercollider and run the following code (make sure you have the arduino code right above loaded)...
 
-```
+```supercollider
 SerialPort.listDevices;
 
 (
@@ -113,7 +113,7 @@ void loop() {
 
 and then run this in supercollider...
 
-```
+```supercollider
 //supercollider code
 SerialPort.listDevices;
 

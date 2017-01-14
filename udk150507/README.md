@@ -3,7 +3,7 @@
 
 first some recap of last week...
 
-```
+```supercollider
 s.boot
 
 Ndef(\mic, {DelayN.ar(SoundIn.ar(0), 1, 1)*SinOsc.ar(500)!2}).play
@@ -24,7 +24,7 @@ thisProcess.platform.recordingsDir  //run this to check where your files end up
 the following is a variation of the delay from [last](https://github.com/redFrik/udk13-Remote_control/tree/master/udk150430#microphone-input) week.
 but here we set different delay times for left and right channel (0.9 in left, 0.8 in right).
 the effect is easier to hear in headphones.
-```
+```supercollider
 Ndef(\pingpong, {DelayN.ar(SoundIn.ar(0), 1, [0.9, 0.8])}).play
 
 Ndef(\pingpong, {DelayN.ar(SoundIn.ar(0), 1, [0.9, 0.8])*SinOsc.ar([500, 6000])}).play
@@ -33,7 +33,7 @@ Ndef(\pingpong, {DelayN.ar(SoundIn.ar(0), 10, [9, 8])*SinOsc.ar([500, 6000])}).p
 ```
 
 
-```
+```supercollider
 //example with three long delay lines
 s.options.memSize= 65536*4; //give more memory to sound server
 s.reboot;   //restart sound server
@@ -52,7 +52,7 @@ network
 to send opensound control (osc) messages over network to other laptops, first connect to the same wifi.
 then use for example [lanscan](http://www.iwaxx.com/lanscan/) for listing the ip addresses of connect laptops.
 
-```
+```supercollider
 s.boot;
 (
 OSCFunc({|msg|
@@ -69,7 +69,7 @@ n.sendMsg(\hiho, \fromFO, 3500);    //send the message
 
 to make a little sequencer that send to many laptops in order, one can use a Routine
 
-```
+```supercollider
 (
 r= Routine({
     inf.do{
@@ -91,7 +91,7 @@ r.stop
 more noise
 --
 
-```
+```supercollider
 s.reboot
 
 Ndef(\perc, {WhiteNoise.ar*SinOsc.ar(5)!2}).play
@@ -120,7 +120,7 @@ Ndef(\perc, {LFPulse.ar(7000)*LFPulse.ar(4)!2}).play
 Ndef(\perc).stop(5) //fade out over 5sec
 ```
 
-```
+```supercollider
 //play many at the same time
 Ndef(\perc1, {LFPulse.ar(500)*LFPulse.ar(2)!2}).play;
 Ndef(\perc2, {LFPulse.ar(600)*LFPulse.ar(3)!2}).play;
@@ -130,7 +130,7 @@ NdefMixer(s);   //gui for mixing
 ```
 
 
-```
+```supercollider
 //make a little script / composition
 (
 Ndef(\perc).fadeTime= 5;
@@ -158,7 +158,7 @@ advanced
 here we set up envelopes that are triggered with some low frequency oscillator.
 then you have more control over the shape of the sound - also try `Env.adsr` and `Env.new` and the curve argument.
 
-```
+```supercollider
 //more advanced envelopes (Env.perc)
 Ndef(\perc, {ClipNoise.ar(1)*EnvGen.ar(Env.perc(0.01, 0.9), LFPulse.ar(4))}).play
 Ndef(\perc, {SinOsc.ar(400)*EnvGen.ar(Env.perc(0.01, 0.1), LFPulse.ar(4))}).play

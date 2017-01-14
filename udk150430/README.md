@@ -6,7 +6,7 @@ download and install [supercollider](http://supercollider.github.io/download.htm
 simple tones
 --
 
-```
+```supercollider
 s.boot  //always run this first (to start the sound server)
 
 1+1
@@ -43,14 +43,14 @@ save the code in a with a .scd file extension and the next time you need to do s
 
 to record your sounds to a soundfile...
 
-```
+```supercollider
 s.makeWindow    //click 'record' to start recording a soundfile
 //click again to stop.
 ```
 the resulting aiff file will end up in your home / music / supercollider recordings folder (on mac osx)
 
 to run a lot of code at the same time add `()` around it and and `;` in the end of each line. this is called a 'block' of code.
-```
+```supercollider
 (
 Ndef(\third, {SinOsc.ar([700, 707])}).play;
 Ndef(\fourth, {SinOsc.ar([703, 708])}).play;
@@ -65,7 +65,7 @@ microphone input
 note: turn down computer volume before trying the next examples. it will feedback.
 if you don't get any sound input double check that you have the built-in microphone selected under system preferences / audio / input.
 
-```
+```supercollider
 Ndef(\mic, { SoundIn.ar!2 } ).play  //!2 means duplicate the sound (in both speakers)
 
 Ndef(\mic, { DelayN.ar(SoundIn.ar, 1, 1)!2 }).play  //one second delay - note how SoundIn is 'inside' the DelayN
@@ -82,7 +82,7 @@ remote sc server
 above you played all sound on your default local server `s` (compare `s.boot`), in supercollider you can also play sound on other remote servers if you know the network address (IP).
 to test the code below you will need two or more computers running supercollider connected to the same network (same wifi for example).
 
-```
+```supercollider
 s.options.maxLogins= 10 //number of allowed connections
 s.reboot    //and reboot your local server
 
@@ -109,7 +109,7 @@ advanced
 --
 
 to reduce sample rate and bit resolution you can use the Latch ugen (sample and hold) in combination with the .round method.
-```
+```supercollider
 Ndef(\bitCrusher, {Latch.ar(SinOsc.ar(400), Impulse.ar(5000)).round(0.001)!2}).play
 s.scope
 

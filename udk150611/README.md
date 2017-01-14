@@ -8,7 +8,7 @@ here we will use mouse x and y position to simulate (analogue) sensor inputs.
 
 some important topics are demonstrated that really can change the way a sensor input behaves.  using it as a switch (threshold), mixing and averaging control signals, smoothing (lag) and envelopes (lagud), differentiating to detect change, quantizing (round), delaying the signal to make it less immediate and more complex response, etc.
 
-```
+```supercollider
 s.boot
 
 //--control signals
@@ -128,7 +128,7 @@ use the arduino code from last week.
 
 * change the Ndef(\sound) line and play with different techniques
 
-```
+```supercollider
 SerialPort.listDevices//check the name and copy into the first line below
 (
 var port= SerialPort("/dev/tty.usbserial-A101NB6Z", 38400, crtscts: true);//edit
@@ -150,7 +150,7 @@ var port= SerialPort("/dev/tty.usbserial-A101NB6Z", 38400, crtscts: true);//edit
 advanced
 --
 to increase your supercollider server memory, run the following code each time you start up (or put it in your startup.scd file)
-```
+```supercollider
 s.options.memSize= 8192*8;
 s.reboot;
 ```
@@ -159,7 +159,7 @@ this will let you allocate more delays.
 
 how to read the mouse within a pbind
 --
-```
+```supercollider
 (
 ~mxbus= Bus.control(s, 1);
 {Out.kr(~mxbus.index, MouseX.kr(200, 2000, 1)); DC.ar(0)}.play;
@@ -171,7 +171,7 @@ Pbind(\dur, 0.2, \freq, Pfunc({~mxbus.getSynchronous.postln})).play
 extra
 --
 
-```
+```supercollider
 //supercollider code with mouse x/y as controller
 s.boot
 

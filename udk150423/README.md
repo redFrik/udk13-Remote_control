@@ -12,7 +12,7 @@ a system mainly for making synthetic sound. but can do a lot of other things as 
 http://supercollider.github.io/download.html
 
 first supercollider test code...
-```
+```supercollider
 1+1+5
 
 s.boot
@@ -194,7 +194,7 @@ void loop() {
 
 supercollider code...
 
-```
+```supercollider
 SerialPort.listDevices
 
 a= SerialPort("/dev/tty.usbserial-A101NAZV", 9600, crtscts: true)

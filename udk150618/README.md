@@ -3,7 +3,7 @@
 
 analysis
 --
-```
+```supercollider
 //pitch tracking in supercollider
 {SinOsc.ar(Pitch.kr(SoundIn.ar)[0])}.play   //[0] means grab the frequency channel of the analysis
 
@@ -26,7 +26,7 @@ a.set(\freq, 400)
 a.set(\freq, 40)
 ```
 
-```
+```supercollider
 //amplitude tracking in supercollider
 {SinOsc.ar(Amplitude.kr(SoundIn.ar)*400+400)}.play
 
