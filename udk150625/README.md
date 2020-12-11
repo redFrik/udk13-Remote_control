@@ -17,10 +17,10 @@ last open the serial monitor in arduino, set the baudrate to 9600 and try some b
 
 links:
 
-* <https://github.com/shirriff/Arduino-IRremote/wiki/Hardware-setup>
-* <https://arduino-info.wikispaces.com/IR-RemoteControl>
+* <https://github.com/z3t0/Arduino-IRremote/wiki/Hardware-setup>
+* <https://web.archive.org/web/20161125093922/https://arduino-info.wikispaces.com/IR-RemoteControl>
 * <https://learn.sparkfun.com/tutorials/ir-communication>
-* <http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html>
+* <https://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html>
 
 ir sending
 --

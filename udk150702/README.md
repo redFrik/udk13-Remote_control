@@ -29,7 +29,7 @@ note: never connect anything that draws more than 40mA directly to the arduino o
 
 to connect motor, lamps, solenoids and other devices that need more than 40mA current and higher voltage than 5V, you will need some kind of driver circuit - one per arduino output pin. there are cheap modules to buy or you can build your own using mosfets or transistors.
 
-the transistors tip120 (also tip121, tip122, tip29a etc) are very easy to use. see [here](http://www.instructables.com/id/Use-Arduino-with-TIP120-transistor-to-control-moto/).
+the transistors tip120 (also tip121, tip122, tip29a etc) are very easy to use. see [here](https://www.instructables.com/Use-Arduino-with-TIP120-transistor-to-control-moto/).
 additionally you will only need a 1K resistor and a flyback 1N4001 diode (also 1N4002...1N4007).
 
 connect a dc motor like this... (choose any pin with a ~ mark)
@@ -56,11 +56,11 @@ more info [here](https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-mot
 
 advanced - many leds
 --
-six pwm channels is the maximum on the standard arduino. to get more one can either use softpwm (flipping digital pins on/off very fast in your code), buy a special pwm module like [adafruit 24channel pwm](https://www.adafruit.com/product/1429) or a cheaper pwm chip like the [tlc5940](http://tronixstuff.com/2013/10/21/tutorial-arduino-tlc5940-led-driver-ic/).
+six pwm channels is the maximum on the standard arduino. to get more one can either use softpwm (flipping digital pins on/off very fast in your code), buy a special pwm module like [adafruit 24channel pwm](https://www.adafruit.com/product/1429) or a cheaper pwm chip like the [tlc5940](https://tronixstuff.com/2013/10/21/tutorial-arduino-tlc5940-led-driver-ic/).
 
 extra
 --
-to send osc commands from supercollider to [processing](http://www.processing.org) look at [supercolliderToProcessing.pde](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra/supercolliderToProcessing/supercolliderToProcessing.pde) and [supercolliderToProcessing.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra/supercolliderToProcessing.scd)
+to send osc commands from supercollider to [processing](https://www.processing.org) look at [supercolliderToProcessing.pde](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra/supercolliderToProcessing/supercolliderToProcessing.pde) and [supercolliderToProcessing.scd](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150702/extra/supercolliderToProcessing.scd)
 
 extra2
 --

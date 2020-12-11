@@ -33,7 +33,7 @@ CmdPeriod.doOnce({port.close});
 )
 
 //load a soundfile
-b= Buffer.read(s, "/Users/Stirling/PollySounds/choir/bell/bell2.wav"); //edit
+b= Buffer.read(s, "~/PollySounds/choir/bell/bell2.wav".standardizePath); //edit
 
 //together with the code above this should make arduino A0 control playbackrate
 Ndef(\sound, {|freq= 400, amp= 1| PlayBuf.ar(b.numChannels, b, freq.lag(0.2)/200, loop:1)*amp}).play;

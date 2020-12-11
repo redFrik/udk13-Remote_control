@@ -2,7 +2,7 @@ SerialPort.listDevices;
 
 (
 b.free;
-b= Buffer.read(s, "/Users/Stirling/PollySounds/choir/bell/bell1.wav");
+b= Buffer.read(s, "~/PollySounds/choir/bell/bell1.wav".standardizePath);
 p= SerialPort("/dev/tty.usbserial-A101NB6Z", 9600, crtscts: true);
 CmdPeriod.doOnce({p.close});//extra safety
 Routine.run({

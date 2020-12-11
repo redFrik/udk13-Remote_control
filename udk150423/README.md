@@ -1,7 +1,7 @@
 general course introduction
 --------------------
 
-* links to previous semesters... <http://redfrik.github.io/udk00-Audiovisual_Programming/>
+* links to previous semesters... <https://redfrik.github.io/udk00-Audiovisual_Programming/>
 * and dates + times for this course... <https://github.com/redFrik/udk13-Remote_control> <-save this page
 
 supercollider
@@ -9,7 +9,7 @@ supercollider
 
 a system mainly for making synthetic sound. but can do a lot of other things as well. includes features like MIDI, OSC, Serial etc. that we will use to talk to hardware and other software.
 
-http://supercollider.github.io/download.html
+https://supercollider.github.io/download.html
 
 first supercollider test code...
 ```supercollider
@@ -32,7 +32,7 @@ arduino
 
 a simple language + a hardware standard for simple electronics. can get input from many kinds of sensors and control many types of things.
 
-http://www.arduino.cc/en/Main/Software
+https://www.arduino.cc/en/software
 
 first arduino test code...
 ```cpp
@@ -69,7 +69,7 @@ i have used two different models. one bought at bauhaus and the other, home easy
 prices vary and there are many different manufacturers and models. check maximum wattage before buying. different rc sockets can take different loads. the two different models i have have a rating of 10A and 3600W maximum. so double check the manual before connecting heavy motors like vacuum cleaners (sidenote: since autumn 2014 there's a law in the EU that one can only buy less that 1600W vacuum cleaners - but old models might require more).
 
 to control these sockets from your computer you also need a sender and receiver module. again there are different versions (some with very long range).
-i have these cheap modules and they work well with arduino: <http://www.exp-tech.de/shields-module/wireless/funk/315mhz-rf-link-kit>
+i have these cheap modules and they work well with arduino: <https://wiki.seeedstudio.com/315Mhz_RF_link_kit/>
 
 to use these modules i'd recommend to download and install the rc-switch library (v.2.52) for arduino <https://github.com/sui77/rc-switch/>
 
@@ -230,6 +230,6 @@ rc-switch arduino library <https://github.com/sui77/rc-switch/>
 
 blog entry about rc switches <https://sui77.wordpress.com/2011/04/12/163/>
 
-another blog entry <http://blog.rot13.org/2013/10/433-mhz-power-sockets-with-rc-switch-arduino-or-raspberry-pi.html>
+another blog entry <https://blog.rot13.org/2013/10/433-mhz-power-sockets-with-rc-switch-arduino-or-raspberry-pi.html>
 
-ABC - Arduino Basic Connections <http://www.pighixxx.com/test/abc/>
+ABC - Arduino Basic Connections <https://web.archive.org/web/20131215051859/http://www.pighixxx.com/abc-arduino-basic-connections/>

@@ -50,7 +50,7 @@ network
 --
 
 to send opensound control (osc) messages over network to other laptops, first connect to the same wifi.
-then use for example [lanscan](http://www.iwaxx.com/lanscan/) for listing the ip addresses of connect laptops.
+then use for example [lanscan](https://www.iwaxx.com/lanscan/) for listing the ip addresses of connect laptops.
 
 ```supercollider
 s.boot;

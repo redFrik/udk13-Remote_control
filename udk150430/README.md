@@ -1,7 +1,7 @@
 150430
 ======
 
-download and install [supercollider](http://supercollider.github.io/download.html). pick either the stable version 3.6.6 or the latest 3.7 - both will work for our purposes.
+download and install [supercollider](https://supercollider.github.io/download.html). pick either the stable version 3.6.6 or the latest 3.7 - both will work for our purposes.
 
 simple tones
 --
@@ -84,6 +84,7 @@ to test the code below you will need two or more computers running supercollider
 
 ```supercollider
 s.options.maxLogins= 10 //number of allowed connections
+s.options.bindAddress= "0.0.0.0" //allow incoming from everywhere
 s.reboot    //and reboot your local server
 
 //find out the IP address of the other computer (osx - see under system preferences / network)
@@ -128,4 +129,4 @@ a gentle introduction to supercollider <https://ccrma.stanford.edu/~ruviaro/text
 
 Eli Fieldsteel's youtube tutorials <https://www.youtube.com/playlist?list=PLPYzvS8A_rTaNDweXe6PX4CXSGq4iEWYC>
 
-David Cottle's computer music <http://www.mat.ucsb.edu/275/CottleSC3.pdf>
+David Cottle's computer music <http://rhoadley.net/courses/tech_resources/supercollider/tutorials/cottle/CMSC7105.pdf>
