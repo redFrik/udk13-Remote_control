@@ -5,11 +5,11 @@ ir remotes
 
 ir receiving
 --
-first install the IRremote library from <https://github.com/shirriff/Arduino-IRremote/releases> (download the zip, extract it into your ~/Documents/Arduino/libraries folder).
+first install the IRremote library (v3.x). This most easily done from the built in Library Manager in Arduino IDE, but you can also download the zip from <https://github.com/shirriff/Arduino-IRremote/releases> and extract it into your ~/Documents/Arduino/libraries folder.
 
 then upload the [ir_receive.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150625/ir_receive/ir_receive.ino)
 
-then connect an ir-receiver (here we use Vishay TSOP34838, 38kHz) to the arduino. connect the left most pin to pin11, the middle to GND and the right most to 5V on the arduino.
+next connect an ir-receiver (here we use Vishay TSOP34838, 38kHz) to the arduino. connect the left most pin to pin11, the middle to GND and the right most to 5V on the arduino.
 
 ![ir_receive](ir_receive.jpg?raw=true "ir_receive")
 
@@ -24,13 +24,13 @@ links:
 
 ir sending
 --
-connect an ir led to another arduino. use pin3 with a resistor (120ohm) and connect via the long leg of the led to GND. like this...
+connect an ir led to another arduino. use pin3 with a resistor (120ohm) and connect via the led (short leg) to GND. like this...
 
 ![ir_send](ir_send.jpg?raw=true "ir_send")
 
 then upload the [ir_send.ino](https://github.com/redFrik/udk13-Remote_control/blob/master/udk150625/ir_send/ir_send.ino)
 
-if you open the serial monitor (for the receiver arduino) you should now see a counter being posted (0-3FF in hex). you will also see some errors if you increase the distance (the sony ir protocol should really send each number three times).
+if you open the serial monitor (for the receiver arduino) you should now see a counter being posted (0-7F in hexadecimal). you will also see some errors if you increase the distance (the sony ir protocol should really send each number three times).
 
 ir remote to sc
 --

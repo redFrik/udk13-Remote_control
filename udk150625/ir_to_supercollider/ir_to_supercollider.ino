@@ -1,19 +1,16 @@
-//install the IRremote library https://github.com/shirriff/Arduino-IRremote/releases
+//install the IRremote library (v3.x) https://github.com/shirriff/Arduino-IRremote/releases
 //and connect an ir receiver (TSOP34838) to pin11, gnd and 5v
 
-#include <IRremote.h>
-
-IRrecv irrecv(11);
-decode_results results;
+#define IR_RECEIVE_PIN 11
+#include <IRremote.hpp>
 
 void setup() {
   Serial.begin(38400);
-  irrecv.enableIRIn();
+  IrReceiver.begin(IR_RECEIVE_PIN, DISABLE_LED_FEEDBACK);
 }
 void loop() {
-  if (irrecv.decode(&results)) {
-    Serial.println(results.value);
-    irrecv.resume();
+  if (IrReceiver.decode()) {
+    Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);
+    IrReceiver.resume();
   }
 }
-

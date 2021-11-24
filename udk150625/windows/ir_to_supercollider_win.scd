@@ -2,18 +2,18 @@
 
 (
 ~dict= (
-	'00FF30CF': {" on".post},
-	'00FF00FF': {" mode".post},
-	'00FF40BF': {" left".post},
-	'00FF48B7': {" right".post},
-	'00FFA05F': {" up".post},
-	'00FFE01F': {" down".post},
+	'F30CFF00': {" on".post},
+	'FF00FF00': {" mode".post},
+	'FD02FF00': {" left".post},
+	'ED12FF00': {" right".post},
+	'FA05FF00': {" up".post},
+	'F807FF00': {" down".post},
 	//edit the above and add more here to match your remote
-	'FFFFFFFF': {" repeat".post}
+	'0': {" repeat".post}
 );
 OSCFunc({|msg|
 	var key;
-	key= msg[1].asInteger.asHexString.asSymbol.post;
+	key= msg[1].asSymbol.post;
 	~dict[key].value;
 	"".postln;
 }, \ir);
@@ -21,11 +21,12 @@ OSCFunc({|msg|
 
 //and while the above program is running, evaluate this...
 (
+s.latency= 0.05;
 s.waitForBoot{
-	var on= false, up= 0, fm= 6;
-	Ndef(\snd, {|freq= 500, freq2= 6, amp= 0, amp2= 0| SinOsc.ar(freq, SinOsc.ar(freq2, 0, 2pi*amp2), amp.lag(0.1))!2}).play;
+	var on= false, up= 3, fm= 6;
+	Ndef(\snd, {|freq= 500, freq2= 6, amp= 0, amp2= 3| SinOsc.ar(freq, SinOsc.ar(freq2, 0, 2pi*amp2), amp.lag(0.1))!2}).play;
 	~dict= (
-		'00FF30CF': {
+		'F30CFF00': {
 			if(on==false, {
 				"on".post;
 				Ndef(\snd).set(\amp, 0.5);
@@ -36,12 +37,12 @@ s.waitForBoot{
 				on= false;
 			});
 		},
-		'00FF00FF': {" mode".post; Ndef(\snd).set(\freq, 150.rrand(5000))},
-		'00FF40BF': {" left".post; fm= (fm-1).max(0); Ndef(\snd).set(\freq2, fm)},
-		'00FF48B7': {" right".post; fm= fm+1; Ndef(\snd).set(\freq2, fm)},
-		'00FFA05F': {" up".post; up= up+1; Ndef(\snd).set(\amp2, up)},
-		'00FFE01F': {" down".post; up= (up-1).max(0); Ndef(\snd).set(\amp2, up)},
-		'FFFFFFFF': {" repeat".post}
+		'FF00FF00': {" mode".post; Ndef(\snd).set(\freq, 150.rrand(5000))},
+		'FD02FF00': {" left".post; fm= (fm-1).max(0); Ndef(\snd).set(\freq2, fm)},
+		'ED12FF00': {" right".post; fm= fm+1; Ndef(\snd).set(\freq2, fm)},
+		'FA05FF00': {" up".post; up= up+1; Ndef(\snd).set(\amp2, up)},
+		'F807FF00': {" down".post; up= (up-1).max(0); Ndef(\snd).set(\amp2, up)},
+		'0': {" repeat".post}
 	);
 };
 )
